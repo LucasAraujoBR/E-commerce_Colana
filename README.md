@@ -8,6 +8,11 @@
 <img align="center" alt="MongoDB" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg">
 </div>
 
+## Inicialmente crie um .env na raiz do projeto e escre a linha de código a seguir
+
+```sh
+SECRET_KEY = 'django-insecure-r*^iriv7v@wqi@7j0+^y=apu+4e1xx3*34s_#i3os2_jc!uads'
+```
 
 ## Instalar dependências do projeto
 
