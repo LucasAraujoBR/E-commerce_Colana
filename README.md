@@ -1,5 +1,14 @@
 <h1>Get House</h1>
 
+
+## Tecnologias
+<div style="display: inline_block">
+<img align="center" alt="Django" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-plain.svg">
+<img align="center" alt="ReactJS" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
+<img align="center" alt="MongoDB" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg">
+</div>
+
+
 ## Executar o Projeto Localmente
 
 ```sh
@@ -34,8 +43,4 @@ https://trello.com/invite/b/vMKDbAT4/ATTIfde897acebcf3fbefaef670b08afc342AB880E0
 https://www.mongodb.com/try/download/community
 ```
 
-## Tecnologias
 
-<img align="center" alt="Django" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-plain.svg">
-<img align="center" alt="ReactJS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
-<img align="center" alt="MongoDB" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg">
