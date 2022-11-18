@@ -1,5 +1,5 @@
 """
-WSGI config for GetHouse project.
+WSGI config for get_house project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'GetHouse.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'get_house.settings')
 
 application = get_wsgi_application()
