@@ -9,21 +9,27 @@
 </div>
 
 
+## Instalar dependências do projeto
+
+```sh
+pip install -r requirements.txt
+```
+
 ## Executar o Projeto Localmente
 
 ```sh
 python manage.py runserver
 ```
 
+## Rodar migrações do banco de dados
+
+```sh
+python manage.py migrate
+```
+
 ## Acessar Interface
 
 http://localhost:8000
-
-## Comandos Auxiliares
-
-```sh
-python manage.py makemigrations
-```
 
 ## Documentação
 
