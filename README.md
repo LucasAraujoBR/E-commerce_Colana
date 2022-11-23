@@ -53,5 +53,9 @@ https://trello.com/invite/b/vMKDbAT4/ATTIfde897acebcf3fbefaef670b08afc342AB880E0
 ```sh
 https://www.mongodb.com/try/download/community
 ```
+## Modelo ER
 
+```sh
+https://github.com/LucasAraujoBR/Get_house/wiki/Model-ER
+```
 
