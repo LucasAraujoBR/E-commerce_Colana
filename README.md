@@ -32,30 +32,17 @@ python manage.py runserver
 python manage.py migrate
 ```
 
-## Acessar Interface
+## <a href="http://localhost:8000">Acessar Interface</a>
 
-http://localhost:8000
+## <a href="https://docs.google.com/document/d/1TE5EUbdo96m7S3l6f1qdDEu05OOVWy646f1m3VudHn4/edit">Documentação</a>
 
-## Documentação
+## <a href="https://trello.com/invite/b/vMKDbAT4/ATTIfde897acebcf3fbefaef670b08afc342AB880E09/get-house-web">Trello</a>
 
-```sh
-https://docs.google.com/document/d/1TE5EUbdo96m7S3l6f1qdDEu05OOVWy646f1m3VudHn4/edit
-```
+##  <a href="https://www.mongodb.com/try/download/community">BD MongoDB</a>
 
-## Trello
+## <a href="https://github.com/LucasAraujoBR/Get_house/wiki/Model-ER">Modelo ER</a>
 
-```sh
-https://trello.com/invite/b/vMKDbAT4/ATTIfde897acebcf3fbefaef670b08afc342AB880E09/get-house-web
-```
 
-## BD MongoDB
 
-```sh
-https://www.mongodb.com/try/download/community
-```
-## Modelo ER
 
-```sh
-https://github.com/LucasAraujoBR/Get_house/wiki/Model-ER
-```
 
