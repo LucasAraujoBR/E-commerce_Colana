@@ -34,13 +34,33 @@ python manage.py migrate
 
 ## <a href="http://localhost:8000">Acessar Interface</a>
 
+```sh
+Após rodar o projeto, entre na url http://localhost:8000
+```
+
 ## <a href="https://docs.google.com/document/d/1TE5EUbdo96m7S3l6f1qdDEu05OOVWy646f1m3VudHn4/edit">Documentação</a>
+
+```sh
+Documentação do projeto, contendo descrição e funcionalidades.
+```
 
 ## <a href="https://trello.com/invite/b/vMKDbAT4/ATTIfde897acebcf3fbefaef670b08afc342AB880E09/get-house-web">Trello</a>
 
+```sh
+Kanban da equipe, onde será organizada nossas tarefas.
+```
+
 ##  <a href="https://www.mongodb.com/try/download/community">BD MongoDB</a>
 
+```sh
+Banco de dados MongoDB, escolha do grupo.
+```
+
 ## <a href="https://github.com/LucasAraujoBR/Get_house/wiki/Model-ER">Modelo ER</a>
+
+```sh
+Modelagem entidade relacionamento do projeto get house.
+```
 
 
 
