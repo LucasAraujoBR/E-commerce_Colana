@@ -12,6 +12,7 @@
 
 ```sh
 SECRET_KEY = 'django-insecure-r*^iriv7v@wqi@7j0+^y=apu+4e1xx3*34s_#i3os2_jc!uads'
+DB_NAME = 'nome que você atribuiu ao banco mongodb'
 ```
 
 ## Instalar dependências do projeto
