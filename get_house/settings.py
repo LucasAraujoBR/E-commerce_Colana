@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'get_house.wsgi.application'
 DATABASES = {
      'default': {
          'ENGINE': 'djongo',
-         'NAME': 'get_house_db',
+         'NAME': config("DB_NAME"),
      }
  }
 
