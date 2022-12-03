@@ -42,6 +42,12 @@ http://localhost:8000
 https://docs.google.com/document/d/1TE5EUbdo96m7S3l6f1qdDEu05OOVWy646f1m3VudHn4/edit
 ```
 
+## Figma - Protótipo 
+
+```sh
+https://www.figma.com/file/TaK3BXyb58AiWG64soDE9C/Simple-Login-Flow-(Community)?node-id=0%3A1&t=836g5khAQG63AiBN-0
+```
+
 ## Trello
 
 ```sh
