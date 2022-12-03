@@ -32,14 +32,10 @@ python manage.py runserver
 python manage.py migrate
 ```
 
-## Acessar Interface
-
-http://localhost:8000
-
-## Documentação
+## <a href="http://localhost:8000">Acessar Interface</a>
 
 ```sh
-https://docs.google.com/document/d/1TE5EUbdo96m7S3l6f1qdDEu05OOVWy646f1m3VudHn4/edit
+Após rodar o projeto, entre na url http://localhost:8000
 ```
 
 ## Figma - Protótipo 
@@ -51,13 +47,28 @@ https://www.figma.com/file/TaK3BXyb58AiWG64soDE9C/Simple-Login-Flow-(Community)?
 ## Trello
 
 ```sh
-https://trello.com/invite/b/vMKDbAT4/ATTIfde897acebcf3fbefaef670b08afc342AB880E09/get-house-web
+Documentação do projeto, contendo descrição e funcionalidades.
 ```
 
-## BD MongoDB
+## <a href="https://trello.com/invite/b/vMKDbAT4/ATTIfde897acebcf3fbefaef670b08afc342AB880E09/get-house-web">Acessar Trello</a>
 
 ```sh
-https://www.mongodb.com/try/download/community
+Kanban da equipe, onde será organizada nossas tarefas.
 ```
+
+##  <a href="https://www.mongodb.com/try/download/community">Acessar BD MongoDB</a>
+
+```sh
+Banco de dados MongoDB, escolha do grupo.
+```
+
+## <a href="https://github.com/LucasAraujoBR/Get_house/wiki/Model-ER">Acessar Modelo ER</a>
+
+```sh
+Modelagem entidade relacionamento do projeto get house.
+```
+
+
+
 
 
