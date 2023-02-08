@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import datetime
 from pathlib import Path
 from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'clients',
     'interests',
     'drf_spectacular',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -129,8 +131,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-}
+    'DEFAULT_PAGINATION_CLASS': 'utils.pagination.CustomPagination',
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication','rest_framework_simplejwt.authentication.JWTTokenUserAuthentication',),
+    'PAGE_SIZE':int(config('PAGE_SIZE', 20)),
 
+}
+AUTH_USER_MODEL = 'clients.Client'
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Get House API',
     'DESCRIPTION': '',
@@ -139,3 +145,18 @@ SPECTACULAR_SETTINGS = {
     'DISABLE_ERRORS_AND_WARNINGS': True,
     # OTHER SETTINGS
 }
+
+SIMPLE_JWT = {
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'clients',
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=int(20)),
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(minutes=int(60)),
+}
+
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
