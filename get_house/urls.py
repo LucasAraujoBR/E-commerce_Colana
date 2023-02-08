@@ -19,12 +19,17 @@ from clients.views import ClientViewSet
 from interests.views import InterestsViewSet
 from rest_framework import viewsets
 from rest_framework import routers
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+
 
 route = routers.DefaultRouter()
-route.register(r'clients/',ClientViewSet,basename='Clients')
-route.register(r'Interests/',InterestsViewSet,basename='Interests')
+route.register(r'clients',ClientViewSet,basename='Clients')
+route.register(r'Interests',InterestsViewSet,basename='Interests')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('get_house/', SpectacularAPIView.as_view(), name='docs'),
+    path('docs/', SpectacularSwaggerView.as_view(url_name='docs'), name='swagger-ui'),
+
     path('', include(route.urls))
 ]
