@@ -37,11 +37,6 @@ python manage.py migrate
 Após rodar o projeto, entre na url http://localhost:8000
 ```
 
-
-```sh
-Modelagem entidade relacionamento do projeto get house.
-
-```
 ## <a href="https://github.com/LucasAraujoBR/Get_house/wiki/Model-ER">Acessar Modelo ER</a>
 
 
