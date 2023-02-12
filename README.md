@@ -38,5 +38,5 @@ Os usuários serão baseados em dois tipos de pessoas:
 
 ##  <a href="https://www.mongodb.com/try/download/community">MongoDB</a>
 
-
+## <a href="https://github.com/LucasAraujoBR/Get_house/wiki/Model-ER">Modelo ER</a>
 
