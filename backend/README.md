@@ -31,13 +31,13 @@ python manage.py runserver
 python manage.py migrate
 ```
 
-## <a href="http://localhost:8000">Acessar Interface</a>
+## <a href="http://localhost:8000">Interface</a>
 
 ```sh
 Após rodar o projeto, entre na url http://localhost:8000
 ```
 
-## <a href="https://github.com/LucasAraujoBR/Get_house/wiki/Model-ER">Acessar Modelo ER</a>
+## <a href="https://github.com/LucasAraujoBR/Get_house/wiki/Model-ER">Modelo ER</a>
 
 
 
