@@ -8,22 +8,12 @@
 <img align="center" alt="MongoDB" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg">
 </div>
 
-## Figma - Protótipo 
+## <a href="https://www.figma.com/file/TaK3BXyb58AiWG64soDE9C/Simple-Login-Flow-(Community)?node-id=0%3A1&t=836g5khAQG63AiBN-0">Figma</a>
 
-```sh
-https://www.figma.com/file/TaK3BXyb58AiWG64soDE9C/Simple-Login-Flow-(Community)?node-id=0%3A1&t=836g5khAQG63AiBN-0
-```
-
-## Trello
-
-## <a href="https://trello.com/invite/b/vMKDbAT4/ATTIfde897acebcf3fbefaef670b08afc342AB880E09/get-house-web">Acessar Trello</a>
+## <a href="https://trello.com/invite/b/vMKDbAT4/ATTIfde897acebcf3fbefaef670b08afc342AB880E09/get-house-web">Trello</a>
 
 
-```sh
-Banco de dados MongoDB, escolha do grupo.
-```
-
-##  <a href="https://www.mongodb.com/try/download/community">Acessar BD MongoDB</a>
+##  <a href="https://www.mongodb.com/try/download/community">MongoDB</a>
 
 
 
