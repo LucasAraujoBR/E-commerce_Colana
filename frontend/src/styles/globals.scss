@@ -1,0 +1,117 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  color: #000;
+  font-family: Sora;
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    background-color: white;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: var(--neutral-gray);
+  }
+}
+
+a {
+  cursor: pointer;
+  color: #f62973;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  --primary: #f62973;
+  --hover: #f20059;
+  --neutral-gray: #b9b9b9;
+  --neutral: #818181;
+  --neutral-dark: #161616;
+  --neutral-light: #f6f6f6;
+  --error: #fc364d;
+  --caution: #d6a036;
+  --success: #66bf9e;
+}
+
+img {
+  box-sizing: content-box;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+}
+
+.PhoneInput {
+  display: flex;
+  align-items: center;
+  .PhoneInputCountry {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    .PhoneInputCountryIcon {
+      > img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 30px;
+      }
+    }
+
+    > select {
+      width: 40px;
+      border: none;
+      color: transparent;
+      background-color: transparent;
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  input {
+    width: 100%;
+    padding: 16px 0px;
+    font-family: "Sora";
+    background: transparent;
+    border: none;
+    color: #000;
+    border-bottom: 0.5px solid var(--neutral-gray);
+    outline: none;
+    filter: drop-shadow(0px 16px 60px rgba(78, 79, 114, 0.08));
+    caret-color: var(--primary);
+
+    &:not(:placeholder-shown),
+    &:focus {
+      border-bottom: 0.5px solid var(--primary);
+    }
+
+    &::placeholder {
+      font-size: 16px;
+      font-family: "Sora";
+      color: var(--neutral-gray);
+    }
+
+    &:disabled {
+      border-bottom-color: var(--neutral-gray);
+      background: #f1f1f1;
+    }
+  }
+}

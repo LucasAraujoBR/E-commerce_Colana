@@ -1,0 +1,35 @@
+.input {
+  width: 100%;
+  padding: 22px;
+  font-family: "Sora";
+  background: transparent;
+  border: none;
+  color: #000;
+  border-radius: 50px;
+  box-shadow: 0px 16px 60px rgba(78, 79, 114, 0.08);
+  outline: none;
+  caret-color: var(--primary);
+
+  &:global {
+    &:not(:placeholder-shown),
+    &:focus {
+      border-bottom: 0.5px solid var(--primary);
+    }
+
+    &::placeholder {
+      font-size: 16px;
+      font-family: "Sora";
+      color: var(--neutral-gray);
+    }
+
+    &:disabled {
+      border-bottom-color: var(--neutral-gray);
+      background: #f1f1f1;
+    }
+
+    &.textarea {
+      resize: none;
+      min-height: 54px;
+    }
+  }
+}
