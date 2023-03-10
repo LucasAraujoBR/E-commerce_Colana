@@ -27,7 +27,7 @@ export const CreateUser = async (bodyData: any) => {
 export const SignIn = async (bodyData: any) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASE_URL}/login` as string,
+      `${import.meta.env.VITE_API_BASE_URL}/auth/login/` as string,
       {
         ...options,
         body: JSON.stringify(bodyData),
