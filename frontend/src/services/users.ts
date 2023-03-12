@@ -11,7 +11,7 @@ const baseUrl = import.meta.env.VITE_API_BASE_URL;
 export const CreateUser = async (bodyData: any) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASE_URL}/clients` as string,
+      `${import.meta.env.VITE_API_BASE_URL}/clients/` as string,
       {
         ...options,
         body: JSON.stringify(bodyData),
@@ -34,7 +34,7 @@ export const SignIn = async (bodyData: any) => {
       }
     );
     const dataToReturn = await response.json();
-    return dataToReturn;
+    return dataToReturn?.data;
   } catch (error) {
     return null;
   }

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { IcEyeOpen } from "../../assets";
 import { Input, PrimaryButton } from "../../components/atoms";
 import { InitialTemplate } from "../../components/organisms/loginTemplate";
+import { CreateUser } from "../../services";
 import styles from "./styles.module.scss";
 
 export function Signup() {
@@ -21,7 +23,28 @@ export function Signup() {
     confirmPassword &&
     password === confirmPassword;
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    const submitUser = {
+      email,
+      password,
+      is_verified: true,
+      is_active: true,
+      type: isRenter ? "inquilino" : "proprietario",
+      name,
+      phone: whatsapp,
+      rg: "",
+      cpf: "",
+      address: "",
+    };
+    const resp = await CreateUser(submitUser);
+    if (resp) {
+      toast.success("Usuário cadastrado. Faça login para iniciar :)");
+      setTimeout(() => {
+        history("/login");
+      }, 2000);
+    } else {
+      toast.error("Algo deu errado ): tente novamente");
+    }
     // submit
   };
 

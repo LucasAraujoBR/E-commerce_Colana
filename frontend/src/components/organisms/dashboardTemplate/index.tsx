@@ -1,5 +1,8 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 import { IcLogo, IcUser } from "../../../assets";
+import useUser from "../../../stores/user";
 import { PrimaryButton } from "../../atoms";
 import { HeaderModal } from "./components";
 // import { Header } from 'components/organisms';
@@ -11,14 +14,56 @@ type DashboardTemplateProps = {
 
 export const DashboardTemplate = ({ children }: DashboardTemplateProps) => {
   const [showModalMenu, setShowModalMenu] = useState<boolean>(false);
+  const history = useNavigate();
+  const [cookies] = useCookies(["user"]);
+  const { user, addUser } = useUser();
+  const url = window.location.href;
+
+  useEffect(() => {
+    if (!user && cookies?.user) {
+      addUser(cookies?.user);
+    }
+  }, []);
+
+  const pushToRoute = (route: string) => {
+    history(route);
+  };
+
   return (
     <>
       <div className={styles.header}>
         <div className={styles.headerLeft}>
-          <img width={50} height={50} src={IcLogo} />
-          <p className={styles.headerTitleSelected}>Meus Interesses</p>
-          <p className={styles.headerTitle}>Cadastrar Interesse</p>
-          <p className={styles.headerTitle}>Meus Matches</p>
+          <img alt="Logo do get house" width={50} height={50} src={IcLogo} />
+          <p
+            onClick={() => pushToRoute("/dashboard")}
+            className={
+              url.includes("dashboard")
+                ? styles.headerTitleSelected
+                : styles.headerTitle
+            }
+          >
+            Meus Interesses
+          </p>
+          <p
+            onClick={() => pushToRoute("/register-interest")}
+            className={
+              url.includes("register-interest")
+                ? styles.headerTitleSelected
+                : styles.headerTitle
+            }
+          >
+            Cadastrar Interesse
+          </p>
+          <p
+            onClick={() => pushToRoute("/matches")}
+            className={
+              url.includes("matches")
+                ? styles.headerTitleSelected
+                : styles.headerTitle
+            }
+          >
+            Meus Matches
+          </p>
         </div>
         <div className={styles.headerRight}>
           <PrimaryButton
@@ -26,12 +71,13 @@ export const DashboardTemplate = ({ children }: DashboardTemplateProps) => {
             className={styles.primaryButton}
           >
             <img
+              alt="Ícone de usuário"
               className={styles.userIcon}
               width={24}
               height={24}
               src={IcUser}
             />
-            <p>Username</p>
+            <p>{user?.name}</p>
           </PrimaryButton>
         </div>
         {showModalMenu && <HeaderModal setShowModalMenu={setShowModalMenu} />}

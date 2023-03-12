@@ -36,7 +36,7 @@ a {
   --neutral-gray: #b9b9b9;
   --neutral: #818181;
   --neutral-dark: #161616;
-  --neutral-light: #f6f6f6;
+  --neutral-light: #fbf9f9;
   --error: #fc364d;
   --caution: #d6a036;
   --success: #66bf9e;
@@ -57,6 +57,42 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
   box-shadow: 0 0 0 30px white inset !important;
+}
+
+.Toastify__toast--success {
+  background: #f6fffb !important;
+  border: 1px solid #27a675;
+  .Toastify__toast-body {
+    div {
+      color: #27a675;
+    }
+  }
+  .Toastify__close-button {
+    opacity: 1;
+    svg {
+      path {
+        fill: #27a675;
+      }
+    }
+  }
+}
+
+.Toastify__toast--error {
+  background: #ffe1e1 !important;
+  border: 1px solid #fc364d;
+  .Toastify__toast-body {
+    div {
+      color: #fc364d;
+    }
+  }
+  .Toastify__close-button {
+    opacity: 1;
+    svg {
+      path {
+        fill: #fc364d;
+      }
+    }
+  }
 }
 
 .PhoneInput {

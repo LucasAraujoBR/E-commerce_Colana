@@ -18,7 +18,7 @@ export const InitialTemplate = ({
       <div className={styles.banner}>
         <img
           src={IcLogo}
-          alt="Get House Logotipo"
+          alt="Logotipo do Get house"
           width="453"
           height="453"
           style={{
@@ -29,7 +29,7 @@ export const InitialTemplate = ({
       </div>
       {hasBackButton && (
         <button onClick={onClickBackButton} className={styles.backButton}>
-          <img alt="back arrow" src={IcBackArrow} width={14} height={14} />
+          <img alt="Ícone de seta" src={IcBackArrow} width={14} height={14} />
         </button>
       )}
       {children}

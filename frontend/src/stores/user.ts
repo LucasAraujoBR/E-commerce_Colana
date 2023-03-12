@@ -1,8 +1,14 @@
 import { create } from "zustand";
+import { User } from "../types/user";
 
-const useUser = create((set) => ({
+type State = {
+  user: User | undefined;
+  addUser: (user: User) => void;
+};
+
+const useUser = create<State>((set) => ({
   user: undefined,
-  addUser: (user: any) =>
+  addUser: (user: User) =>
     set(() => ({
       user,
     })),
