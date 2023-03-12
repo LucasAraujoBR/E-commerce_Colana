@@ -24,6 +24,7 @@ export const RegisterInterests = () => {
   return (
     <DashboardTemplate>
       <div className={styles.container}>
+        <p className={styles.title}>Cadastrar Novo Interesse</p>
         {!showSecondStep ? (
           <FirstStep
             local={local}
