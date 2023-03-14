@@ -15,22 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from apps.clients.views import ClientViewSet
-from apps.interests.views import InterestsViewSet
-from rest_framework import viewsets
-from rest_framework import routers
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
 
-route = routers.DefaultRouter()
-route.register(r'clients',ClientViewSet,basename='Clients')
-route.register(r'Interests',InterestsViewSet,basename='Interests')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('get_house/', SpectacularAPIView.as_view(), name='docs'),
     path('docs/', SpectacularSwaggerView.as_view(url_name='docs'), name='swagger-ui'),
     path('auth/', include('apps.clients.api.auth.urls'), name='Auth'),
-
-    path('', include(route.urls))
+    path('client/', include('apps.clients.api.clients.urls'), name='Client'),
+    path('interest/', include('apps.interests.api.interests.urls'), name='Interests'),
 ]
