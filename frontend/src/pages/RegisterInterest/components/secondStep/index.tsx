@@ -33,10 +33,10 @@ export const SecondStep = ({
 }: SecondStepProps) => {
   return (
     <div className={styles.form}>
-      <>
+      <div className={styles.titleContainer}>
         <BackButton onClick={() => setShowSecondStep(false)} />
         <p className={styles.subtitle}>Últimos detalhes</p>
-      </>
+      </div>
       <div className={styles.selectionContainer}>
         <div className={styles.checkboxContainer}>
           <input

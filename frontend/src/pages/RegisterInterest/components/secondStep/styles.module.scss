@@ -36,7 +36,14 @@
 }
 
 .subtitle {
+  width: 80%;
   font-size: 17px;
   font-weight: 600;
   align-self: center;
+}
+
+.titleContainer {
+  display: flex;
+  width: 100%;
+  text-align: center;
 }

@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Input, PrimaryButton } from "../../components/atoms";
 import { InitialTemplate } from "../../components/organisms/loginTemplate";
-import { SignIn } from "../../services";
+import { FetchCities, SignIn } from "../../services";
 import useUser from "../../stores/user";
 import { User } from "../../types";
 import styles from "./styles.module.scss";
 
 export function Login() {
   const [cookies, setCookie] = useCookies(["token", "user"]);
-  const { addUser } = useUser();
+  const { addUser, addIsOwner } = useUser();
   const history = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -21,15 +21,21 @@ export function Login() {
     const data = await SignIn({ email, password });
     if (data?.access) {
       addUser(data?.user);
+      addIsOwner(data?.user?.type === "proprietário");
       setCookie("token", data?.access, { path: "/" });
       setCookie("user", data?.user, { path: "/" });
-      addUser(data?.user);
       history("/dashboard");
     } else {
       toast.error("Email ou senha inválidos.");
     }
     setIsLoading(false);
   };
+
+  // useEffect(() => {
+  //   FetchCities().then((resp) => {
+  //     console.log(resp);
+  //   });
+  // }, []);
 
   return (
     <InitialTemplate

@@ -16,12 +16,13 @@ export const DashboardTemplate = ({ children }: DashboardTemplateProps) => {
   const [showModalMenu, setShowModalMenu] = useState<boolean>(false);
   const history = useNavigate();
   const [cookies] = useCookies(["user"]);
-  const { user, addUser } = useUser();
+  const { user, addUser, addIsOwner } = useUser();
   const url = window.location.href;
 
   useEffect(() => {
     if (!user && cookies?.user) {
       addUser(cookies?.user);
+      addIsOwner(cookies?.user?.type === "proprietário");
     }
   }, []);
 

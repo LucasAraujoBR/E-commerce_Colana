@@ -29,7 +29,7 @@ export function Signup() {
       password,
       is_verified: true,
       is_active: true,
-      type: isRenter ? "inquilino" : "proprietario",
+      type: isRenter ? "inquilino" : "proprietário",
       name,
       phone: whatsapp,
       rg: "",
@@ -37,7 +37,7 @@ export function Signup() {
       address: "",
     };
     const resp = await CreateUser(submitUser);
-    if (resp) {
+    if (!resp.error) {
       toast.success("Usuário cadastrado. Faça login para iniciar :)");
       setTimeout(() => {
         history("/login");

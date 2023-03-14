@@ -9,6 +9,7 @@ from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiExampl
 from drf_spectacular.types import OpenApiTypes
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
+from rest_framework.permissions import AllowAny
 # @method_decorator(name='list', decorator=extend_schema(responses={status.HTTP_200_OK:SchemaSaggerListClients}))
 # @method_decorator(name='retrieve', decorator=extend_schema(responses={status.HTTP_200_OK: SchemaSwaggerResponseClients}))
 class ClientViewSet(ModelViewSet):
@@ -16,7 +17,7 @@ class ClientViewSet(ModelViewSet):
     queryset = Client.objects.all()
     serializer_class = ClientSeralizer
 
-    permission_classes = (IsAuthenticatedStaffCustom,)
+    permission_classes = (AllowAny,)
 
     custom_response_models: dict = {
         'create': ResponsePostSerializerDefault,

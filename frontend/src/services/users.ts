@@ -11,12 +11,19 @@ const baseUrl = import.meta.env.VITE_API_BASE_URL;
 export const CreateUser = async (bodyData: any) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASE_URL}/clients/` as string,
+      `${import.meta.env.VITE_API_BASE_URL}/client/` as string,
       {
         ...options,
         body: JSON.stringify(bodyData),
       }
     );
+    if (
+      response?.status === 400 ||
+      response?.status === 401 ||
+      response?.status === 404
+    ) {
+      return { error: response?.statusText };
+    }
     const dataToReturn = await response.json();
     return dataToReturn;
   } catch (error) {
@@ -33,6 +40,13 @@ export const SignIn = async (bodyData: any) => {
         body: JSON.stringify(bodyData),
       }
     );
+    if (
+      response?.status === 400 ||
+      response?.status === 401 ||
+      response?.status === 404
+    ) {
+      return { error: response?.statusText };
+    }
     const dataToReturn = await response.json();
     return dataToReturn?.data;
   } catch (error) {

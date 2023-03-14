@@ -8,7 +8,7 @@ class Client(AbstractBaseUser):
     
     CLIENT_TYPE = (
         ('inquilino','inquilino'),
-        ('proprietário ','proprietário ')
+        ('proprietário','proprietário')
     )
     
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)

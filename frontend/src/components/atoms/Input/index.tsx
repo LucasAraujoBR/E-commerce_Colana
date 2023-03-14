@@ -14,6 +14,7 @@ type InputProps = {
   autoFocus?: boolean;
   rows?: number;
   inputClassName?: string;
+  onInput?: React.FormEventHandler<HTMLInputElement> | undefined;
 };
 
 export const Input = ({
@@ -29,6 +30,7 @@ export const Input = ({
   onClickOutside,
   rows,
   inputClassName,
+  onInput,
   ...props
 }: InputProps) => {
   const handleChange = (
@@ -55,6 +57,7 @@ export const Input = ({
         disabled={disabled}
         autoFocus={autoFocus}
         onBlur={onClickOutside}
+        onInput={onInput}
         {...props}
       />
     </>
