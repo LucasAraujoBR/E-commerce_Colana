@@ -152,8 +152,8 @@ SIMPLE_JWT = {
     'USER_ID_CLAIM': 'clients',
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=int(20)),
-    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(minutes=int(60)),
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=int(262800)),
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(minutes=int(788400)),
 }
 
 EMAIL_HOST = config('EMAIL_HOST')
