@@ -1,0 +1,54 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+  position: sticky;
+  top: 0;
+  height: fit-content;
+  background-color: white;
+  z-index: 3;
+}
+
+.headerTitle {
+  color: var(--primary);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.headerTitleSelected {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.headerLeft {
+  display: flex;
+  width: 50%;
+  min-width: 520px;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  background: #fcfdff;
+}
+
+.content {
+  width: 100%;
+  height: 100vh;
+  background: #f6f6f6;
+}
+
+.userIcon {
+  padding-right: 10px;
+}
+
+.primaryButton {
+  height: 34px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+}

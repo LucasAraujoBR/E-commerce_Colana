@@ -13,6 +13,8 @@ from rest_framework.response import Response
 from rest_framework import generics, status
 from django.contrib.auth.models import User
 
+from apps.clients.serializer import ClientCustomSerializer
+
 
 
 class ResetPasswordEmailRequestSerializer(serializers.Serializer):
@@ -70,10 +72,12 @@ class AuthSerializer(serializers.Serializer):
     class Meta:
         fields = ('email','password')
 
-    def get_tokens_for_user(self, user):
+    def get_tokens_for_user(self, user, userSerialized):
         refresh = RefreshToken.for_user(user)
+        # print(userSerialized)
 
         return {
+            'user': userSerialized,
             'access': str(refresh.access_token),
             'refresh': str(refresh),
         }
@@ -91,14 +95,19 @@ class AuthSerializer(serializers.Serializer):
             return False
 
         user = valide_hash_custom(current_users_hashed)
+        print(user)
 
         
         if not user:
             raise AuthenticationFailed('Invalid users')
        
         obj = Client.objects.get(email=attrs.get('email', ''))
+        userSerialized = ClientCustomSerializer(obj, data=self.initial_data)
+
+        if userSerialized.is_valid():
+            return self.get_tokens_for_user(obj, userSerialized.data)
+
        
-        return self.get_tokens_for_user(obj)
 
 
 

@@ -1,7 +1,9 @@
 from django.urls import path
 from .viewsets import *
+from django.conf import settings
+from django.conf.urls.static import static
 
-
+# outras rotas do seu projeto
 
 urlpatterns = [
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path,include
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,3 +28,5 @@ urlpatterns = [
     path('client/', include('apps.clients.api.clients.urls'), name='Client'),
     path('interest/', include('apps.interests.api.interests.urls'), name='Interests'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

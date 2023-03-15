@@ -1,9 +1,8 @@
+import { AppRoutes } from "./Routes";
+import "./styles/globals.scss";
+
 function App() {
-  return (
-    <div className="App">
-      <h1>Frontend Initial Pack</h1>
-    </div>
-  );
+  return <AppRoutes />;
 }
 
 export default App;

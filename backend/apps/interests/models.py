@@ -9,7 +9,7 @@ class Interests(models.Model):
     
     INTERESTS_TYPE = (
         ('casa','casa'),
-        ('apartamento ','apartamento')
+        ('apartamento','apartamento')
     )
     
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='client')
@@ -22,7 +22,7 @@ class Interests(models.Model):
     pool = models.BooleanField(default=False)
     morning_sun = models.BooleanField(default=False)
     guarantor = models.BooleanField(default=False)
-    file = models.FileField(upload_to=content_file_name)
+    file = models.FileField( blank=True, null=True, upload_to=content_file_name)
     
     
     class Meta:

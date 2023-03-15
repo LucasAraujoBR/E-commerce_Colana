@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 314px;
+  height: 318px;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  padding: 16px;
+  margin-right: 30px;
+}
+
+.logoContainer {
+  display: flex;
+  width: 275px;
+  height: 140px;
+  border-radius: 16px;
+  justify-content: center;
+  background: var(--neutral-light);
+}
+
+.logo {
+  width: 191px;
+  height: 130px;
+}
+
+.containerInfos {
+  display: flex;
+  padding-top: 15px;
+}
+
+.internalInfos {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.info {
+  font-size: 12px;
+  margin: 3px;
+  cursor: default;
+}
+
+.footerInfos {
+  display: flex;
+  flex-direction: row;
+  padding-top: 8px;
+  justify-content: space-evenly;
+}
+
+.footerInfosWpp {
+  display: flex;
+  flex-direction: row;
+  padding-top: 8px;
+  justify-content: center;
+  > img {
+    cursor: pointer;
+  }
+}
+
+.editButton {
+  font-size: 12px;
+  text-align: end;
+  cursor: pointer;
+}
+
+.deleteButton {
+  font-size: 12px;
+  color: var(--error);
+  cursor: pointer;
+}
+
+.whatsapp {
+  font-size: 12px;
+  color: var(--green);
+  cursor: pointer;
+  padding-right: 8px;
+}
