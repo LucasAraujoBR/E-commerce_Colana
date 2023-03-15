@@ -48,6 +48,16 @@
   justify-content: space-evenly;
 }
 
+.footerInfosWpp {
+  display: flex;
+  flex-direction: row;
+  padding-top: 8px;
+  justify-content: center;
+  > img {
+    cursor: pointer;
+  }
+}
+
 .editButton {
   font-size: 12px;
   text-align: end;
@@ -58,4 +68,11 @@
   font-size: 12px;
   color: var(--error);
   cursor: pointer;
+}
+
+.whatsapp {
+  font-size: 12px;
+  color: var(--green);
+  cursor: pointer;
+  padding-right: 8px;
 }

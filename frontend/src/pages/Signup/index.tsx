@@ -5,6 +5,7 @@ import { IcEyeOpen } from "../../assets";
 import { Input, PrimaryButton } from "../../components/atoms";
 import { InitialTemplate } from "../../components/organisms/loginTemplate";
 import { CreateUser } from "../../services";
+import { phoneMask } from "../../utils";
 import styles from "./styles.module.scss";
 
 export function Signup() {
@@ -21,7 +22,8 @@ export function Signup() {
     whatsapp &&
     password &&
     confirmPassword &&
-    password === confirmPassword;
+    password === confirmPassword &&
+    whatsapp.length >= 15;
 
   const handleSubmit = async () => {
     const submitUser = {
@@ -78,7 +80,7 @@ export function Signup() {
           />
           <Input
             placeholder="WhatsApp"
-            value={whatsapp}
+            value={phoneMask(whatsapp)}
             onChange={setWhatsapp}
             name="whatsapp"
           />

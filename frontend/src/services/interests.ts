@@ -1,3 +1,8 @@
+import { useCookies } from "react-cookie";
+import useInterest from "../stores/interests";
+import useUser from "../stores/user";
+import { Interest } from "../types";
+
 const optionsPost = {
   method: "POST",
   headers: {

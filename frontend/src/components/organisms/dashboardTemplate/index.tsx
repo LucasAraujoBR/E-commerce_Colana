@@ -16,7 +16,7 @@ export const DashboardTemplate = ({ children }: DashboardTemplateProps) => {
   const [showModalMenu, setShowModalMenu] = useState<boolean>(false);
   const history = useNavigate();
   const [cookies] = useCookies(["user"]);
-  const { user, addUser, addIsOwner } = useUser();
+  const { user, addUser, addIsOwner, isOwner } = useUser();
   const url = window.location.href;
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export const DashboardTemplate = ({ children }: DashboardTemplateProps) => {
                 : styles.headerTitle
             }
           >
-            Meus Interesses
+            {isOwner ? "Meus Imóveis" : "Meus Interesses"}
           </p>
           <p
             onClick={() => pushToRoute("/register-interest")}
@@ -53,7 +53,7 @@ export const DashboardTemplate = ({ children }: DashboardTemplateProps) => {
                 : styles.headerTitle
             }
           >
-            Cadastrar Interesse
+            {isOwner ? "Cadastrar Imóvel" : "Cadastrar Interesse"}
           </p>
           <p
             onClick={() => pushToRoute("/matches")}
