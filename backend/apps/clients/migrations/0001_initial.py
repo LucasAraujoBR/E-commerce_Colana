@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
                 ('is_staff', models.BooleanField(default=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('type', models.CharField(choices=[('inquilino', 'inquilino'), ('proprietário ', 'proprietário ')], default='inquilino', max_length=250)),
+                ('type', models.CharField(choices=[('inquilino', 'inquilino'), ('proprietário', 'proprietário')], default='inquilino', max_length=250)),
                 ('name', models.CharField(blank=True, max_length=255)),
                 ('phone', models.CharField(blank=True, max_length=255)),
                 ('rg', models.CharField(blank=True, max_length=255)),

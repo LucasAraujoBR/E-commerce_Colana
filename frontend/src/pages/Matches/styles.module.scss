@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0 0 30px;
+}
+
+.cardContainer {
+  display: flex;
+  padding: 10px;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+    background-color: white;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--neutral-light);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    width: 10px;
+
+    background-color: #b9b9b9;
+  }
+}
+
+.title {
+  font-size: 20px;
+  padding-left: 10px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.titleRed {
+  font-size: 20px;
+  // padding-left: 10px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--error);
+}
+
+.subtitle {
+  font-size: 15px;
+  padding-left: 10px;
+  width: 55%;
+  margin: 10px 0 20px 0;
+}
