@@ -15,6 +15,9 @@ import os
 from pathlib import Path
 from decouple import config
 import os
+import os,ast
+from corsheaders.defaults import default_headers
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,12 +31,11 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://localhost:3001', '127.0.0.1']
-CORS_ALLOWED_ORIGINS = ['http://localhost:3001']
+ALLOWED_ORIGINS = ast.literal_eval(str(config('ALLOWED_ORIGINS')))
+CORS_ALLOW_HEADERS = list(default_headers) + ast.literal_eval(str(config('ALLOWED_HEADERS')))
+# TODO Remover essa configuração
+CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ORIGIN_ALLOW_ALL = False
-
-CORS_ORIGIN_WHITELIST = ['http://localhost:3001']
 
 
 # Application definition

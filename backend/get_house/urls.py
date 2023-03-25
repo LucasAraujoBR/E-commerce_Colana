@@ -27,6 +27,7 @@ urlpatterns = [
     path('auth/', include('apps.clients.api.auth.urls'), name='Auth'),
     path('client/', include('apps.clients.api.clients.urls'), name='Client'),
     path('interest/', include('apps.interests.api.interests.urls'), name='Interests'),
+    path('dashboard/', include('apps.interests.api.dashboard.urls'), name='Dashboard'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

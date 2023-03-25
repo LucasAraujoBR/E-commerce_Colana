@@ -1,5 +1,6 @@
 from django.db import models
 from apps.clients.models import Client
+from apps.interests.manager.interests import InterestsManager
 
 
 def content_file_name(instance, filename):
@@ -11,7 +12,7 @@ class Interests(models.Model):
         ('casa','casa'),
         ('apartamento','apartamento')
     )
-    
+    objects = InterestsManager()
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='client')
     place = models.CharField(max_length=250)
     size = models.CharField(max_length=250, null=True, blank=True)

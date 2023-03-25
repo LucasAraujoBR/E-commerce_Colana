@@ -2,7 +2,7 @@ from apps.clients.models import Client
 from apps.clients.api.clients.serializers import *
 from rest_framework import status
 from rest_framework.viewsets import ModelViewSet
-from apps.utils.custom_jwt import IsAuthenticatedStaffCustom
+from apps.utils.custom_jwt import IsAuthenticatedStaffCustom, IsAuthenticatedSimpleCustom
 from django.contrib.auth.hashers import make_password
 from django.utils.decorators import method_decorator
 from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiExample
@@ -86,8 +86,9 @@ class ClientViewSet(ModelViewSet):
         status.HTTP_400_BAD_REQUEST : SwaggerErrorDefault
         })
     def update(self, request, *args, **kwargs):
-        
+        permission_classes = (IsAuthenticatedSimpleCustom,)
         data =  self.apply_owner()
+        
         
         if request.data.get('password','') != '':
             return Response({"Error":"Cannot change password in this method"},status=status.HTTP_400_BAD_REQUEST)
@@ -114,13 +115,15 @@ class ClientViewSet(ModelViewSet):
         status.HTTP_400_BAD_REQUEST : SwaggerErrorDefault
         })
     def partial_update(self, request, *args, **kwargs):
+        permission_classes = (IsAuthenticatedSimpleCustom,)
         return super().partial_update(request, *args, **kwargs)
 
 
     def retrieve(self, request, *args, **kwargs):
-            instance = self.get_object()
-            response = self.get_response_model_get(instance)
-            return Response(response)
+        permission_classes = (IsAuthenticatedSimpleCustom,)
+        instance = self.get_object()
+        response = self.get_response_model_get(instance)
+        return Response(response)
 
     
     @extend_schema(
@@ -130,7 +133,7 @@ class ClientViewSet(ModelViewSet):
             ]
     )
     def list(self, request, *args, **kwargs):
-        
+        permission_classes = (IsAuthenticatedSimpleCustom,)
         queryset = self.filter_queryset(self.get_queryset())
 
         page = self.paginate_queryset(queryset)
