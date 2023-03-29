@@ -13,4 +13,4 @@ urlpatterns = [
     path('change_password/', ChangePasswordView.as_view(), name='token_change_password'),
     path('request-reset-email/', RequestPasswordResetEmail.as_view(), name="request-reset-email"),
     path('password-reset/<uidb64>/<token>/', SetNewPasswordAPIView.as_view(), name='password-reset-complete')
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

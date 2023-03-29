@@ -1,31 +1,31 @@
-import { useCookies } from "react-cookie";
-import useInterest from "../stores/interests";
-import useUser from "../stores/user";
-import { Interest } from "../types";
+import { useCookies } from 'react-cookie';
+import useInterest from '../stores/interests';
+import useUser from '../stores/user';
+import { Interest } from '../types';
 
 const optionsPost = {
-  method: "POST",
+  method: 'POST',
   headers: {
-    "content-type": "application/json",
+    'content-type': 'application/json',
     Authorization: `${import.meta.env.VITE_KEY}`,
   },
 };
 
-const optionsGet = { ...optionsPost, method: "GET" };
-const optionsDelete = { ...optionsPost, method: "DELETE" };
+const optionsGet = { ...optionsPost, method: 'GET' };
+const optionsDelete = { ...optionsPost, method: 'DELETE' };
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 export const CreateInterest = async (bodyData: any) => {
   try {
     const formData = new FormData();
     let options;
-    if (bodyData.file) {
+    if (bodyData?.data?.file) {
       for (const key in bodyData.data) {
         formData.append(key, bodyData.data[key]);
       }
-      formData.append("file", bodyData.file);
+      formData.append('file', bodyData?.data?.file);
       options = {
-        method: "POST",
+        method: 'POST',
         headers: {
           Authorization: `Bearer ${bodyData.token}`,
         },
@@ -33,9 +33,9 @@ export const CreateInterest = async (bodyData: any) => {
       };
     } else {
       options = {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "content-type": "application/json",
+          'content-type': 'application/json',
           Authorization: `Bearer ${bodyData.token}`,
         },
         body: JSON.stringify(bodyData.data),
@@ -60,9 +60,9 @@ export const CreateInterest = async (bodyData: any) => {
 export const GetInterests = async (bodyData: any) => {
   try {
     const response = await fetch(`${baseUrl}/interest/` as string, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "content-type": "application/json",
+        'content-type': 'application/json',
         Authorization: `Bearer ${bodyData.token}`,
       },
       // body: JSON.stringify(bodyData),
@@ -85,9 +85,9 @@ export const RemoveInterest = async (bodyData: any) => {
   const { id } = bodyData;
   try {
     const response = await fetch(`${baseUrl}/interest/${id}` as string, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
-        "content-type": "application/json",
+        'content-type': 'application/json',
         Authorization: `Bearer ${bodyData.token}`,
       },
     });

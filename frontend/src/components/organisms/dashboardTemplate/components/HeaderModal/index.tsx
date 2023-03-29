@@ -1,7 +1,10 @@
-import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
-import { DrawerMenu } from "../../../../molecules";
-import styles from "./styles.module.scss";
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
+import { IcLogout, IcSearch } from '../../../../../assets';
+import useInterest from '../../../../../stores/interests';
+import useUser from '../../../../../stores/user';
+import { DrawerMenu } from '../../../../molecules';
+import styles from './styles.module.scss';
 
 type HeaderProps = {
   toggleMenu?: () => void;
@@ -11,17 +14,22 @@ type HeaderProps = {
 
 export const HeaderModal = ({ toggleMenu, setShowModalMenu }: HeaderProps) => {
   const history = useNavigate();
-  const [cookies, setCookie, removeCookie] = useCookies(["token", "user"]);
+  const [cookies, setCookie, removeCookie] = useCookies(['token', 'user']);
+  const { addUser, addIsOwner, isOwner } = useUser();
+  const { addAllInterests, addMyInterests, myInterests } = useInterest();
 
   const signOut = async () => {
-    removeCookie("token", { path: "/" });
-    removeCookie("user", { path: "/" });
-    history("/login");
+    removeCookie('token', { path: '/' });
+    removeCookie('user', { path: '/' });
+    addUser(undefined);
+    addIsOwner(undefined);
+    addAllInterests([]);
+    addMyInterests([]);
+    history('/login');
   };
-
-  // const handleInit = () => {
-  //   router.push('/dashboard');
-  // };
+  const pushToExplorer = () => {
+    history('/explorer');
+  };
 
   return (
     <div className={styles.header}>
@@ -30,10 +38,33 @@ export const HeaderModal = ({ toggleMenu, setShowModalMenu }: HeaderProps) => {
           <div className={styles.drawerUser}>
             <DrawerMenu>
               <div className={styles.bottom}>
-                <p className={styles.optionMenu}>Configurações</p>
-                <p onClick={signOut} className={styles.optionMenu}>
-                  Sair
-                </p>
+                {isOwner && (
+                  <div className={styles.optionContainer}>
+                    <img
+                      width={20}
+                      height={20}
+                      src={IcSearch}
+                      alt='search icon'
+                    />
+                    <span
+                      onClick={pushToExplorer}
+                      className={styles.optionMenu}
+                    >
+                      Buscar
+                    </span>
+                  </div>
+                )}
+                <div className={styles.optionContainer}>
+                  <img
+                    width={24}
+                    height={24}
+                    src={IcLogout}
+                    alt='search icon'
+                  />
+                  <span onClick={signOut} className={styles.optionMenu}>
+                    Sair
+                  </span>
+                </div>
               </div>
             </DrawerMenu>
           </div>
