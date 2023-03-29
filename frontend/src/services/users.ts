@@ -1,12 +1,12 @@
 const options = {
-  method: "POST",
+  method: 'POST',
   headers: {
-    "content-type": "application/json",
+    'content-type': 'application/json',
     Authorization: `${import.meta.env.VITE_KEY}`,
   },
 };
 
-const optionsGet = { ...options, method: "GET" };
+const optionsGet = { ...options, method: 'GET' };
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -50,7 +50,6 @@ export const GetUser = async (bodyData: any) => {
       return { error: response?.statusText };
     }
     const dataToReturn = await response.json();
-    console.log("user by id", dataToReturn);
     return dataToReturn?.data;
   } catch (error) {
     return null;

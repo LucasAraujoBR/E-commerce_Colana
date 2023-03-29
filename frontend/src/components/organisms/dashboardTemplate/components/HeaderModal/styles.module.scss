@@ -47,25 +47,37 @@
       position: absolute;
       top: 74px;
       right: 25px;
-      width: 230px;
-      height: 137px;
-      .headerUser {
-        display: flex;
-        align-items: center;
-        padding: 16px;
-        border-bottom: 1px solid #eeeeee;
-        gap: 16px;
-        margin-bottom: 6px;
-        img {
-          border-radius: 50%;
-        }
-        span {
-          font-size: 14px;
-          color: #3e3e3e;
-          font-weight: 500;
-        }
+      width: 160px;
+      text-align: center;
+      align-items: center;
+      align-content: center;
+      // height: 137px;
+      // .headerUser {
+      // display: flex;
+      // align-items: center;
+      // padding: 16px;
+      // border-bottom: 1px solid #eeeeee;
+      // gap: 16px;
+      // margin-bottom: 6px;
+
+      span {
+        font-size: 17px;
+        color: #3e3e3e;
+        font-weight: 600;
+        align-content: center;
       }
+      // }
     }
+  }
+}
+
+.optionContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > img {
+    padding-right: 8px;
   }
 }
 
@@ -75,7 +87,10 @@
   align-items: baseline;
   padding: 20px;
   height: 100%;
-  justify-content: center;
+  gap: 15px;
+  // justify-content: center;
+  // align-items: center;
+  // align-content: center;
 }
 
 .optionMenu {

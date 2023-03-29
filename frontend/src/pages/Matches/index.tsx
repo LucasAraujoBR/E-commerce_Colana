@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
-import { InterestCard } from "../../components/molecules";
-import { DashboardTemplate } from "../../components/organisms";
-import { GetUser } from "../../services";
-import { fetchInterests, GetInterests } from "../../services/interests";
-import useInterest from "../../stores/interests";
-import useUser from "../../stores/user";
-import { Interest } from "../../types";
-import styles from "./styles.module.scss";
+import { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
+import { InterestCard } from '../../components/molecules';
+import { DashboardTemplate } from '../../components/organisms';
+import { GetUser } from '../../services';
+import { fetchInterests, GetInterests } from '../../services/interests';
+import useInterest from '../../stores/interests';
+import useUser from '../../stores/user';
+import { Interest } from '../../types';
+import styles from './styles.module.scss';
 
 export const Matches = () => {
   const [matches, setMatches] = useState<Interest[] | undefined>();
@@ -15,7 +15,7 @@ export const Matches = () => {
   const { user } = useUser();
   const { addAllInterests, addMyInterests, myInterests, allInterests } =
     useInterest();
-  const [cookies] = useCookies(["token"]);
+  const [cookies] = useCookies(['token']);
 
   const doMatch = (myInterest: Interest, interestToCompare: Interest) => {
     let matchPoints = 0;
@@ -35,7 +35,7 @@ export const Matches = () => {
   };
 
   const fetchInterests = () =>
-    GetInterests({ client_id: user?.id || "", token: cookies.token }).then(
+    GetInterests({ client_id: user?.id || '', token: cookies.token }).then(
       (resp) => {
         const filteredAllInterests = resp?.filter(
           (interest: Interest) => interest?.client_id !== user?.id
@@ -50,19 +50,27 @@ export const Matches = () => {
 
   useEffect(() => {
     fetchInterests();
-    GetUser({ id: user?.id }).then((resp) => console.log("resp", resp));
+    GetUser({ id: user?.id }).then((resp) => {});
   }, [user]);
 
   useEffect(() => {
     const filteredMatches = allInterests.filter((interest) => {
       return myInterests.find((myInterest) => {
-        const matchPoints = doMatch(myInterest, interest);
-        if (matchPoints >= 4) {
-          return myInterest;
+        if (user?.type === 'inquilino') {
+          if (interest?.file) {
+            const matchPoints = doMatch(myInterest, interest);
+            if (matchPoints >= 4) {
+              return myInterest;
+            }
+          }
+        } else {
+          const matchPoints = doMatch(myInterest, interest);
+          if (matchPoints >= 4) {
+            return myInterest;
+          }
         }
       });
     });
-    console.log("filtered", filteredMatches, user?.id);
     setMatches(filteredMatches);
   }, [allInterests]);
 
@@ -79,8 +87,9 @@ export const Matches = () => {
         )}
         {!!matches?.length && (
           <p className={styles.subtitle}>
-            Aqui você encontra características em comum entre seus Interesses e
-            imóveis de proprietários.
+            {user?.type === 'proprietário'
+              ? 'Aqui você encontra características em comum entre seus Imóveis e interesses de outros usuários.'
+              : 'Aqui você encontra características em comum entre seus Interesses e imóveis de proprietários.'}
           </p>
         )}
         <div className={styles.cardContainer}>

@@ -1,20 +1,20 @@
-import { ChangeEventHandler, useRef, useState } from "react";
-import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { IcLogo } from "../../assets";
-import { Input, PrimaryButton } from "../../components/atoms";
-import { DashboardTemplate } from "../../components/organisms";
-import { CreateInterest } from "../../services/interests";
-import useUser from "../../stores/user";
-import { FirstStep, SecondStep } from "./components";
-import styles from "./styles.module.scss";
+import { ChangeEventHandler, useRef, useState } from 'react';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { IcLogo } from '../../assets';
+import { Input, PrimaryButton } from '../../components/atoms';
+import { DashboardTemplate } from '../../components/organisms';
+import { CreateInterest } from '../../services/interests';
+import useUser from '../../stores/user';
+import { FirstStep, SecondStep } from './components';
+import styles from './styles.module.scss';
 
 export const RegisterInterests = () => {
-  const [place, setPlace] = useState<string>("");
-  const [size, setSize] = useState<string>("");
-  const [price, setPrice] = useState<string>("");
-  const [type, setType] = useState<string>("casa");
+  const [place, setPlace] = useState<string>('');
+  const [size, setSize] = useState<string>('');
+  const [price, setPrice] = useState<string>('');
+  const [type, setType] = useState<string>('casa');
   const [furnished, setFurnished] = useState<boolean>(false);
   const [allowPets, setAllowPets] = useState<boolean>(false);
   const [pool, setPool] = useState<boolean>(false);
@@ -25,7 +25,7 @@ export const RegisterInterests = () => {
   const [file, setFile] = useState<File>();
   const { user, isOwner } = useUser();
   const history = useNavigate();
-  const [cookies] = useCookies(["token"]);
+  const [cookies] = useCookies(['token']);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     const file = event.target.files?.[0];
@@ -34,9 +34,9 @@ export const RegisterInterests = () => {
       reader.readAsDataURL(file);
       reader.onload = function (event) {
         setFile(file);
-        setSrc(event.target ? (event.target.result as string) : "");
+        setSrc(event.target ? (event.target.result as string) : '');
       };
-      reader.readAsDataURL(file);
+      // reader.readAsDataURL(file);
     }
   };
 
@@ -59,10 +59,10 @@ export const RegisterInterests = () => {
       token: cookies.token,
     });
     if (!resp.error) {
-      toast.success("Interesse cadastrado com sucesso.");
-      history("/");
+      toast.success('Interesse cadastrado com sucesso.');
+      history('/');
     } else {
-      toast.error("Algo deu errado ): tente novamente.");
+      toast.error('Algo deu errado ): tente novamente.');
     }
     setFile(undefined);
     // submit
@@ -73,7 +73,7 @@ export const RegisterInterests = () => {
     <DashboardTemplate>
       <div className={styles.container}>
         <p className={styles.title}>
-          {isOwner ? "Cadastrar Novo Imóvel" : "Cadastrar Novo Interesse"}
+          {isOwner ? 'Cadastrar Novo Imóvel' : 'Cadastrar Novo Interesse'}
         </p>
         {!showSecondStep ? (
           <FirstStep

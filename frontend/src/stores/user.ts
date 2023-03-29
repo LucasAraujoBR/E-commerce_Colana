@@ -1,21 +1,21 @@
-import { create } from "zustand";
-import { User } from "../types/user";
+import { create } from 'zustand';
+import { User } from '../types/user';
 
 type State = {
   user: User | undefined;
-  addUser: (user: User) => void;
-  addIsOwner: (isOwner: boolean) => void;
+  addUser: (user: User | undefined) => void;
+  addIsOwner: (isOwner: boolean | undefined) => void;
   isOwner: boolean | undefined;
 };
 
 const useUser = create<State>((set) => ({
   isOwner: undefined,
-  addIsOwner: (isOwner: boolean) =>
+  addIsOwner: (isOwner: boolean | undefined) =>
     set(() => ({
       isOwner,
     })),
   user: undefined,
-  addUser: (user: User) =>
+  addUser: (user: User | undefined) =>
     set(() => ({
       user,
     })),

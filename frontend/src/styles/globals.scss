@@ -2,9 +2,11 @@ html,
 body {
   padding: 0;
   margin: 0;
+  // height: 100vh;
   color: #000;
   font-family: Sora;
   &::-webkit-scrollbar {
+    display: none;
     height: 8px;
     width: 8px;
     background-color: white;
@@ -126,7 +128,7 @@ input:-webkit-autofill:active {
   input {
     width: 100%;
     padding: 16px 0px;
-    font-family: "Sora";
+    font-family: 'Sora';
     background: transparent;
     border: none;
     color: #000;
@@ -142,7 +144,7 @@ input:-webkit-autofill:active {
 
     &::placeholder {
       font-size: 16px;
-      font-family: "Sora";
+      font-family: 'Sora';
       color: var(--neutral-gray);
     }
 
