@@ -2,6 +2,7 @@ export { default as IcAddImage } from './addImage.svg';
 export { default as IcBackArrow } from './back.svg';
 export { default as IcEyeClosed } from './eye-closed.svg';
 export { default as IcEyeOpen } from './eye-open.svg';
+export { default as IcFilter } from './filter.svg';
 export { default as IcLogo } from './logo.svg';
 export { default as IcLogout } from './logout.svg';
 export { default as IcSearch } from './search.svg';

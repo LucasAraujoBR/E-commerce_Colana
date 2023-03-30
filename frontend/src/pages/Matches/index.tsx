@@ -54,18 +54,19 @@ export const Matches = () => {
   }, [user]);
 
   useEffect(() => {
+    const treshold = 4;
     const filteredMatches = allInterests.filter((interest) => {
       return myInterests.find((myInterest) => {
         if (user?.type === 'inquilino') {
           if (interest?.file) {
             const matchPoints = doMatch(myInterest, interest);
-            if (matchPoints >= 4) {
+            if (matchPoints >= treshold) {
               return myInterest;
             }
           }
         } else {
           const matchPoints = doMatch(myInterest, interest);
-          if (matchPoints >= 4) {
+          if (matchPoints >= treshold) {
             return myInterest;
           }
         }
