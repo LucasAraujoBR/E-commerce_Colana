@@ -9,12 +9,47 @@ import useUser from '../../stores/user';
 import { Interest } from '../../types';
 import styles from './styles.module.scss';
 
+export type SelectedOptions = {
+  furnished: boolean;
+  pets: boolean;
+  pool: boolean;
+  morning_sun: boolean;
+  guarantor: boolean;
+};
+
 export const Explorer = () => {
   const { user } = useUser();
   const { addAllInterests, addMyInterests, myInterests, allInterests } =
     useInterest();
   const [term, setTerm] = useState('');
   const [results, setResults] = useState<Interest[]>(allInterests);
+  const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({
+    furnished: false,
+    pets: false,
+    pool: false,
+    morning_sun: false,
+    guarantor: false,
+  });
+  const [selectedProperties, setSelectedProperties] = useState<string[]>([]);
+
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, checked } = event.target;
+    setSelectedOptions((prevSelectedOptions) => ({
+      ...prevSelectedOptions,
+      [id]: checked,
+    }));
+  };
+
+  useEffect(() => {
+    const found = (term ? results : allInterests).filter(
+      (interest: Interest) => {
+        return Object.entries(selectedOptions).every(
+          ([key, value]) => !value || interest[key] === true
+        );
+      }
+    );
+    setResults(found);
+  }, [term, selectedOptions]);
 
   const handleSearch = (text: string) => {
     const termToSearch = text;
@@ -22,7 +57,7 @@ export const Explorer = () => {
     const options = {
       keys: ['place', 'size', 'value', 'type'],
     };
-    const fuse = new Fuse(allInterests, options);
+    const fuse = new Fuse(results || allInterests, options);
     const found = fuse.search(termToSearch).map((item) => item.item);
     if (text) {
       setResults(found);
@@ -30,11 +65,10 @@ export const Explorer = () => {
       setResults(allInterests);
     }
   };
-  // "furnished",
-  // "pets",
-  // "pool",
-  // "morning_sun",
-  // "guarantor",
+
+  useEffect(() => {
+    setResults(allInterests);
+  }, [allInterests]);
 
   const [cookies] = useCookies(['token']);
   const fetchInterests = () =>
@@ -57,14 +91,29 @@ export const Explorer = () => {
         <div className={styles.container}>
           <p className={styles.title}>Interesses dos usuários</p>
           <div className={styles.cardContainer}>
-            {results?.map((interest: Interest) => {
-              return <InterestCard key={interest?.id} interest={interest} />;
-            })}
+            {results?.length ? (
+              results?.map((interest: Interest) => {
+                return (
+                  <InterestCard
+                    isMatch
+                    key={interest?.id}
+                    interest={interest}
+                  />
+                );
+              })
+            ) : (
+              <p>Nenhum interesse encontrado.</p>
+            )}
           </div>
         </div>
         <div className={styles.filterContainer}>
-          <p className={styles.title}>Filtro</p>
-          <Filter text={term} handleSearch={handleSearch} />
+          <p className={styles.filterTitle}>Filtro</p>
+          <Filter
+            selectedOptions={selectedOptions}
+            handleCheckboxChange={handleCheckboxChange}
+            text={term}
+            handleSearch={handleSearch}
+          />
         </div>
       </div>
     </DashboardTemplate>

@@ -34,7 +34,7 @@ export const DashboardTemplate = ({ children }: DashboardTemplateProps) => {
   };
 
   const handleChangeTransition = () => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth <= 768) {
       setShowHamburgerMenu(true);
     } else {
       setIsOpen(false);

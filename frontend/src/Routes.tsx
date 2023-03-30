@@ -22,7 +22,6 @@ import { PrivateRoute } from './PrivateRoute';
 
 export function AppRoutes() {
   const [cookies] = useCookies(['token']);
-  console.log('cookies', cookies.token);
   const token = cookies.token;
   return (
     <Router>

@@ -11,4 +11,5 @@ export type Interest = {
   guarantor: boolean;
   file?: string;
   client_id?: boolean;
+  [key: string]: any;
 };

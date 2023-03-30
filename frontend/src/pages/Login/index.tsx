@@ -31,12 +31,6 @@ export function Login() {
     setIsLoading(false);
   };
 
-  // useEffect(() => {
-  //   FetchCities().then((resp) => {
-  //     console.log(resp);
-  //   });
-  // }, []);
-
   return (
     <InitialTemplate
       hasBackButton

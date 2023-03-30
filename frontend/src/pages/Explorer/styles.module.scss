@@ -41,8 +41,12 @@
   font-weight: 600;
 }
 
-.filterContainer {
-  // position: absolute;
-  // bottom: 0;
-  // right: 0;
+.filterTitle {
+  font-size: 20px;
+  padding-left: 10px;
+  font-weight: 600;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
