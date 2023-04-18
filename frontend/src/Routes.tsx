@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Profiler, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import {
   BrowserRouter as Router,
@@ -10,7 +10,6 @@ import {
   Dashboard,
   Explorer,
   Initial,
-  Interests,
   Login,
   Matches,
   Properties,
@@ -41,12 +40,36 @@ export function AppRoutes() {
         />
 
         <Route element={<PrivateRoute isLogged={!!token} />}>
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route
+            path='/dashboard'
+            element={
+              <Profiler
+                id='Dashboard'
+                onRender={(id, phase, actualDuration) => {
+                  console.log(`${id} levou ${actualDuration} ms to render.`);
+                }}
+              >
+                <Dashboard />
+              </Profiler>
+            }
+          />
           <Route path='/matches' element={<Matches />} />
           <Route path='/properties' element={<Properties />} />
           <Route path='/register-interest' element={<RegisterInterests />} />
           <Route path='/register-property' element={<RegisterProperty />} />
-          <Route path='/explorer' element={<Explorer />} />
+          <Route
+            path='/explorer'
+            element={
+              <Profiler
+                id='Explorer'
+                onRender={(id, phase, actualDuration) => {
+                  console.log(`${id}: ${actualDuration} ms to render.`);
+                }}
+              >
+                <Explorer />
+              </Profiler>
+            }
+          />
         </Route>
       </Routes>
     </Router>

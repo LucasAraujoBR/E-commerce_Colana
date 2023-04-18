@@ -15,6 +15,10 @@
     font-weight: 700;
     margin: 0;
     color: var(--primary);
+
+    @media (max-width: 768px) {
+      margin-top: 100px;
+    }
   }
   .subtitle {
     width: 100%;

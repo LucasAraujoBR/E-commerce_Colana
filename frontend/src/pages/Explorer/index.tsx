@@ -21,7 +21,7 @@ export const Explorer = () => {
   const { user } = useUser();
   const { addAllInterests, addMyInterests, myInterests, allInterests } =
     useInterest();
-  const [term, setTerm] = useState('');
+  const [term, setTerm] = useState<string>('');
   const [results, setResults] = useState<Interest[]>(allInterests);
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({
     furnished: false,
