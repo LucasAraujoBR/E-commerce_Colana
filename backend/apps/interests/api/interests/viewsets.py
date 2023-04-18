@@ -1,5 +1,7 @@
+import math
 from rest_framework import status
 from rest_framework.viewsets import ModelViewSet
+from apps.interests.api.interests.scripts.utils import calcular_distancia, locais_por_distancia
 from apps.interests.api.interests.serializers import InterestsSeralizer, ResponsePostSerializerDefault, SwaggerErrorDefault
 from apps.interests.models import Interests
 from apps.utils.custom_jwt import IsAuthenticatedSimpleCustom
@@ -102,19 +104,25 @@ class InterestsViewSet(ModelViewSet):
     )
     def list(self, request, *args, **kwargs):
         
-        queryset = self.filter_queryset(self.get_queryset())
+        locais = locais_por_distancia(request)
+        # print(locais)
+        # queryset = self.filter_queryset(self.get_queryset())
 
-        page = self.paginate_queryset(queryset)
+        page = self.paginate_queryset(locais)
 
         if page is not None:
             response = self.get_response_model(page)
             return self.get_paginated_response(response)
 
 
-        serializer = self.get_serializer(queryset, many=True)
+        serializer = self.get_serializer(locais, many=True)
         response = self.get_response_model(serializer.data)
       
         
         return Response(response)
+
+    
+    
+
 
     

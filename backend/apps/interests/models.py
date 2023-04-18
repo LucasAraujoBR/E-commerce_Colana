@@ -13,7 +13,7 @@ class Interests(models.Model):
         ('apartamento','apartamento')
     )
     objects = InterestsManager()
-    client_id = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='client')
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='client')
     place = models.CharField(max_length=250)
     size = models.CharField(max_length=250, null=True, blank=True)
     value = models.CharField(max_length=250)
@@ -24,6 +24,8 @@ class Interests(models.Model):
     morning_sun = models.BooleanField(default=False)
     guarantor = models.BooleanField(default=False)
     file = models.FileField( blank=True, null=True, upload_to=content_file_name)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6,blank=True, null=True)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6,blank=True, null=True)
     
     
     class Meta:
